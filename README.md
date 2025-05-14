@@ -1,8 +1,8 @@
 Installation: (In Command Prompt)
 <br>
-python -m venv env
+1. python -m venv env
 <br>
-source env/bin/activate
+2. source env/bin/activate
 <br>
-pip install -r requirements.txt
+3. pip install -r requirements.txt
 <br>

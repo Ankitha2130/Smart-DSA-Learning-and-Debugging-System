@@ -76,13 +76,6 @@ import os
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
-# Load .env file and initialize OpenAI
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-
-if not api_key:
-    raise EnvironmentError("OPENAI_API_KEY not found in .env")
-
 import os
 if not os.path.exists("D:/huggingface"):
     os.makedirs("D:/huggingface")

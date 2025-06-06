@@ -4,7 +4,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import make_response
 from xhtml2pdf import pisa
 from io import BytesIO
-from flask_migrate import Migrate
 import io
 import traceback
 import contextlib
@@ -23,14 +22,15 @@ import subprocess
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db_path = '/tmp/db.sqlite3'  # writable location in Hugging Face
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 load_dotenv()
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 # User Model
 class User(db.Model):
